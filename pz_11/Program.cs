@@ -25,12 +25,12 @@
             if (str.Length % 2 == 0)
             {
                 result = Convert.ToString(str.Substring(str.Length / 2, 1));
-                Console.WriteLine("Количество четное, поэтому выводим один символ из центре: " + result);
+                Console.WriteLine("Количество четное, поэтому выводим один символ из центра: " + result);
             }
             else
             {
                 result = Convert.ToString(str.Substring(str.Length / 2, 2));
-                Console.WriteLine("Количество не четное, поэтому выводим два символа из центре: " + result);
+                Console.WriteLine("Количество не четное, поэтому выводим два символа из центра: " + result);
             }
         }
     }
