@@ -25,7 +25,7 @@
             if (str.Length % 2 == 0)
             {
                 result = Convert.ToString(str.Substring(str.Length / 2, 1));
-                Console.WriteLine("Количество четное, поэтому один выводим символ из центре: " + result);
+                Console.WriteLine("Количество четное, поэтому выводим один символ из центре: " + result);
             }
             else
             {
