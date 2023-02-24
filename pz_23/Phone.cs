@@ -32,7 +32,7 @@ namespace pz_23
     class PrivatePhone : Phone
     {
 
-        public string[] Availability =  { "Клиент", "Рабочий", "Начальник", "Сотрудник" };
+        public List<string> Availabilities = new List<string>() { "Клиент", "Рабочий", "Начальник", "Сотрудник" };
 
         public override void GetPhoneNumber(ref string Prefix, ref string Code, ref string Number)
         {

@@ -1,4 +1,6 @@
-﻿namespace pz_23
+﻿using System;
+
+namespace pz_23
 {
     internal class Program
     {
@@ -16,19 +18,16 @@
                 if (phone.Type == "1")
                 {
                     Console.WriteLine("Кем вы являетесь?");
-                    foreach (string Availability in Privat.Availability)
+                    string Contact = Console.ReadLine();
+                    bool hasContact = Privat.Availabilities.Contains(Contact);
+                    if ((Contact == "Клиент" || Contact == "Рабочий") && hasContact == true)
                     {
-                        if (Availability == "Клиент" | Availability == "Рабочий")
-                        {
-                            Console.WriteLine("Доступ разрешен");
-                            correct = false;
-                            break;
-                        }
-                        else
-                        {
-                            Console.WriteLine("Доступ не разрешен");
-                            return;
-                        }
+                        Console.WriteLine("Доступ предоставлен!");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Не можем предоставить");
+                        return;
                     }
                     Console.WriteLine();
                     string one = phone.Prefix = "+1";
@@ -44,21 +43,18 @@
                 else if (phone.Type == "2")
                 {
                     Console.WriteLine("Кем вы являетесь?");
-                    Console.ReadLine();
-                    foreach (string b in Privat.Availability)
+                    string Contact = Console.ReadLine();
+                    bool hasContact = Privat.Availabilities.Contains(Contact);
+                    if ((Contact == "Начальник" || Contact == "Сотрудник") && hasContact == true)
                     {
-                        if (b == "Начальник" | b == "Сотрудник")
-                        {
-                            Console.WriteLine("Доступ разрешен");
-                            correct = false;
-                            break;
-                        }
-                        else
-                        {
-                            Console.WriteLine("Доступ не разрешен");
-                            return;
-                        }
+                        Console.WriteLine("Доступ предоставлен!");
                     }
+                    else
+                    {
+                        Console.WriteLine("Не можем предоставить");
+                        return;
+                    }
+                    Console.WriteLine();
                     string one = phone.Prefix = "+7";
                     Console.Write("Введите первые 3 цифры: ");
                     string two = phone.Code = Console.ReadLine();
