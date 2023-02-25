@@ -8,7 +8,13 @@ namespace pz_23
         {
             PrivatePhone Privat = new PrivatePhone();
             bool correct = true;
+            Random rnd = new Random();
+            int rndnumber = rnd.Next(1000000, 9999999);
             string phoneFormat = "###-##-##";
+            int[] Array = { 932, 987, 3532 };
+            int mArray = rnd.Next(Array.Length);
+            int[] Array1 = { 963, 918, 988 };
+            int mArray1 = rnd.Next(Array.Length);
             Phone phone = new Phone();
             while (correct)
             {
@@ -29,12 +35,9 @@ namespace pz_23
                         Console.WriteLine("Не можем предоставить");
                         return;
                     }
-                    Console.WriteLine();
                     string one = phone.Prefix = "+1";
-                    Console.Write("Введите первые 3 цифры: ");
-                    string two = phone.Code = Console.ReadLine();
-                    Console.Write("Введите последующие 7 цифр: ");
-                    string three = phone.Number = Convert.ToInt32(Console.ReadLine()).ToString(phoneFormat);
+                    string two = phone.Code = Convert.ToString(Array[mArray]);
+                    string three = phone.Number = rndnumber.ToString(phoneFormat);
                     Console.WriteLine();
                     Phone.const1++;
                     Privat.GetPhoneNumber(ref one, ref two, ref three);
@@ -54,12 +57,9 @@ namespace pz_23
                         Console.WriteLine("Не можем предоставить");
                         return;
                     }
-                    Console.WriteLine();
                     string one = phone.Prefix = "+7";
-                    Console.Write("Введите первые 3 цифры: ");
-                    string two = phone.Code = Console.ReadLine();
-                    Console.Write("Введите последующие 7 цифр: ");
-                    string three = phone.Number = Convert.ToInt32(Console.ReadLine()).ToString(phoneFormat);
+                    string two = phone.Code = Convert.ToString(Array1[mArray1]);
+                    string three = phone.Number = rndnumber.ToString(phoneFormat);
                     Console.WriteLine();
                     Phone.const2++;
                     Privat.GetPhoneNumber(ref one, ref two, ref three);

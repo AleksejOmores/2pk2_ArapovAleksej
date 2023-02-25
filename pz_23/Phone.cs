@@ -20,12 +20,12 @@ namespace pz_23
             if (Prefix == "+1")
             {
                 Console.WriteLine($"Введено корпоративных номеров: {const1} ");
-                Console.WriteLine($"{Prefix}({Code}){Number}");
+                Console.WriteLine($"Вот ваш номер : {Prefix}({Code}){Number}");
             }
             if (Prefix == "+7")
             {
                 Console.WriteLine($"Введено личных номеров: {const2} ");
-                Console.WriteLine($"{Prefix}({Code}){Number}");
+                Console.WriteLine($"Вот ваш номер : {Prefix}({Code}){Number}");
             }
         }
     }
