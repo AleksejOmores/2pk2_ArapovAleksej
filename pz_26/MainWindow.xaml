@@ -30,9 +30,10 @@
         </ListBox.ContextMenu>
     </ListBox>
     <Menu Height="25" VerticalAlignment="Top">
-        <MenuItem Header="Файл">
-            <MenuItem Header="New Project" ></MenuItem>
-            <MenuItem Header="Open Project" >
+            <MenuItem Header="Файл" Click="MenuItem_Click">
+                <MenuItem x:Name="newFileMenuItem" Header="New Project" Click="New_Click"></MenuItem>
+                <MenuItem Header="Save Project" Click="Save_Click"></MenuItem>
+                <MenuItem Header="Open Project" Click="Open_Click" >
                 <MenuItem Header="WinForms"></MenuItem>
                 <MenuItem Header="WPF" ></MenuItem>
             </MenuItem>
