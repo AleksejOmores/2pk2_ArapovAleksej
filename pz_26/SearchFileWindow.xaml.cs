@@ -27,18 +27,11 @@ namespace pz_26
         private void Ofcourse_Click(object sender, RoutedEventArgs e)
         {
             listbox1.Items.Clear();
-            DirectoryInfo dir = new DirectoryInfo(Search.Text);
+            DirectoryInfo dr = new DirectoryInfo(@"C:\Users\user\source\repos\2pk2_ArapovAleksej\pz_26\data");
 
-            DirectoryInfo[] dirs = dir.GetDirectories();
-
-            foreach (DirectoryInfo derol in dirs)
+            foreach (var derol in dr.GetFiles())
             {
-                listbox1.Items.Add(derol);
-            }
-            FileInfo[] files = dir.GetFiles();
-            foreach(FileInfo derol in files)
-            {
-                listbox1.Items.Add(derol);
+                listbox1.Items.Add(derol.Name);
             }
         }
         public string FileName
