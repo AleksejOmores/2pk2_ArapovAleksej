@@ -94,12 +94,11 @@ namespace pz_26
             else 
             isUnd = !isUnd;
         }
-        private void UpCursorPosition(object sender, TextChangedEventArgs e)
+        private void txtEditor_SelectionChanged(object sender, RoutedEventArgs e)
         {
-            int Row = textbox1.GetLineIndexFromCharacterIndex(textbox1.CaretIndex);
-            int Col = textbox1.CaretIndex - textbox1.GetLineIndexFromCharacterIndex(Row);
-
-            CursorPosition.Text = $"Строка: {Row + 1} Столбец: {Col + 1}";
+            int row = txtEditor.GetLineIndexFromCharacterIndex(txtEditor.CaretIndex);
+            int col = txtEditor.CaretIndex - txtEditor.GetCharacterIndexFromLineIndex(row);
+            idl.Text = "Line " + (row + 1) + ", Char " + (col + 1);
         }
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
@@ -127,5 +126,6 @@ namespace pz_26
         {
 
         }
+
     }
 }

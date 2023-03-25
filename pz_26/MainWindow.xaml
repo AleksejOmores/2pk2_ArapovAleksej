@@ -22,8 +22,9 @@
                     </Grid>
                 </ItemsPanelTemplate>
             </StatusBar.ItemsPanel>
-            <TextBlock x:Name="CursorPosition" KeyDown="CursorPosition_KeyDown" KeyUp="CursorPosition_KeyUp"></TextBlock>
-            <StatusBarItem Grid.Column="1">
+            <TextBlock Name="idl"/>
+            <TextBox AcceptsReturn="True" Name="txtEditor" SelectionChanged="txtEditor_SelectionChanged" />
+                <StatusBarItem Grid.Column="1">
                 <TextBlock>Текст справа</TextBlock>
             </StatusBarItem>
         </StatusBar>
