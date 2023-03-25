@@ -13,6 +13,6 @@ WindowStartupLocation="CenterScreen">
         <WrapPanel Grid.Row="2" HorizontalAlignment="Right" Margin="0,15,0,0"/>
         <Button IsDefault="True" Click="Ofcourse_Click" MinWidth="60"
 Margin="527,34,10,383">OK</Button>
-        <ListBox x:Name="listbox1" Margin="0,93,0,24" HorizontalAlignment="Center" Width="598"/>
+        <ListBox x:Name="listbox1" Margin="0,93,0,24" HorizontalAlignment="Center" Width="598" SelectionChanged="listbox1_SelectionChanged"/>
     </Grid>
 </Window>

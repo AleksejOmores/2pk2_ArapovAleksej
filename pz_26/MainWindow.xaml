@@ -22,10 +22,9 @@
                     </Grid>
                 </ItemsPanelTemplate>
             </StatusBar.ItemsPanel>
-            <TextBlock Name="idl"/>
-            <TextBox AcceptsReturn="True" Name="txtEditor" SelectionChanged="txtEditor_SelectionChanged" />
-                <StatusBarItem Grid.Column="1">
-                <TextBlock>Текст справа</TextBlock>
+            <TextBlock Name="ibl"></TextBlock>
+            <StatusBarItem Grid.Column="1">
+                <TextBlock Name="idl"></TextBlock>
             </StatusBarItem>
         </StatusBar>
         <WrapPanel MinHeight="20" Margin="0,25,0,0">
@@ -39,7 +38,7 @@
             <Image Source="images\underline_format_editor_tool_icon_145920.png"/>
         </Button>
     </WrapPanel>
-        <TextBox x:Name="textbox1" MaxLength="250" TextChanged="TextBox_TextChanged" Margin="195,25,0,0" Text="" KeyDown="textbox1_KeyDown" KeyUp="textbox1_KeyUp"/>
+        <TextBox x:Name="textbox1" AcceptsReturn="True" MaxLength="250" SelectionChanged="txtEditor_SelectionChanged" SpellCheck.IsEnabled="True" Language="ru-ru" TextChanged="TextBox_TextChanged" Margin="195,25,0,0" Text="" KeyDown="textbox1_KeyDown" KeyUp="textbox1_KeyUp"/>
         <ListBox Name="list" Margin="0,55,610,0">
         <ListBox.ContextMenu>
             <ContextMenu>

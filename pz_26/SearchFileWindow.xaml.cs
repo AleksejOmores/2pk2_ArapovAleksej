@@ -39,5 +39,8 @@ namespace pz_26
             get { return Search.Text; }
         }
 
+        private void listbox1_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+        }
     }
 }

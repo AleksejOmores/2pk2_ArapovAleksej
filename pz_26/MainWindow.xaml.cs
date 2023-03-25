@@ -66,6 +66,10 @@ namespace pz_26
             {
                 textbox1.Text = File.ReadAllText(openFile.FileName);
             }
+            DateTime time = File.GetCreationTime(openFile.FileName);
+            FileInfo info = new FileInfo(openFile.FileName);
+            idl.Text = $"{time}  Размер: {info.Length} Б";
+            
         }
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
@@ -96,9 +100,9 @@ namespace pz_26
         }
         private void txtEditor_SelectionChanged(object sender, RoutedEventArgs e)
         {
-            int row = txtEditor.GetLineIndexFromCharacterIndex(txtEditor.CaretIndex);
-            int col = txtEditor.CaretIndex - txtEditor.GetCharacterIndexFromLineIndex(row);
-            idl.Text = "Line " + (row + 1) + ", Char " + (col + 1);
+            int row = textbox1.GetLineIndexFromCharacterIndex(textbox1.CaretIndex);
+            int col = textbox1.CaretIndex - textbox1.GetCharacterIndexFromLineIndex(row);
+            ibl.Text = $"Строка: {row} Столбец: {col}";
         }
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
