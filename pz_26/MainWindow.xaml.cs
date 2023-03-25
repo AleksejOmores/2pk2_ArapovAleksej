@@ -27,9 +27,9 @@ namespace pz_26
     /// </summary>
     public partial class MainWindow : Window
     {
-        bool ital = false;
-        bool bld = false;
-        bool und = false;
+        bool isBold;
+        bool isItal;
+        bool isUnd;
         private string ReadMessage;
 
         public string filename { get; private set; }
@@ -70,44 +70,60 @@ namespace pz_26
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             TextBox textBox = (TextBox)sender;
-            if (bld)
-            {
-                textBox.FontWeight = FontWeights.Bold;
-            }
-            if (ital)
-            {
-                textBox.FontStyle = FontStyles.Italic;
-            }
-            if (und)
-            {
-                textBox.TextDecorations = TextDecorations.Underline;
-            }
-
-            textBox.FontWeight = FontWeights.Bold;
         }
-        private void italicc(object sender, RoutedEventArgs e)
+        private void italicc_Click(object sender, RoutedEventArgs e)
         {
-            if (italic.IsEnabled == true)
-                ital = true;
-            else if (italic.IsEnabled == false)
-                ital = false;
+            if (!isItal)
+                textbox1.FontStyle = FontStyles.Italic;
+            else
+                textbox1.FontStyle = FontStyles.Normal;
+            isItal = !isItal;
         }
         private void blodd(object sender, RoutedEventArgs e)
         {
-            if (blod.IsEnabled == true)
-                bld = true;
-            else if (blod.IsEnabled == false)
-                bld = false;
+            if (!isBold)
+                textbox1.FontWeight = FontWeights.Bold;
+            else 
+                textbox1.FontWeight = FontWeights.Normal;
+            isBold = !isBold;
         }
         private void underr(object sender, RoutedEventArgs e)
         {
-            if (under.IsEnabled == true)
-                und = true;
-            else if (under.IsEnabled == false)
-                und = false;
+            if (!isUnd)
+                textbox1.TextDecorations = TextDecorations.Underline;
+            else 
+            isUnd = !isUnd;
         }
+        private void UpCursorPosition(object sender, TextChangedEventArgs e)
+        {
+            int Row = textbox1.GetLineIndexFromCharacterIndex(textbox1.CaretIndex);
+            int Col = textbox1.CaretIndex - textbox1.GetLineIndexFromCharacterIndex(Row);
 
+            CursorPosition.Text = $"Строка: {Row + 1} Столбец: {Col + 1}";
+        }
         private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void textbox1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                int index = textbox1.SelectionStart;
+                textbox1.Text = textbox1.Text.Substring(0, textbox1.SelectionStart) + Environment.NewLine
+                    + textbox1.Text.Substring(textbox1.SelectionStart);
+                textbox1.SelectionStart = textbox1.Text.Length;
+            }
+        } 
+        private void textbox1_KeyUp(object sender, KeyEventArgs e)
+        {
+
+        }
+        private void CursorPosition_KeyDown(object sender, KeyEventArgs e)
+        {
+
+        }
+        private void CursorPosition_KeyUp(object sender, KeyEventArgs e)
         {
 
         }

@@ -7,8 +7,28 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <StatusBar Grid.Row="1">
+            <StatusBar.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="auto"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                    </Grid>
+                </ItemsPanelTemplate>
+            </StatusBar.ItemsPanel>
+            <TextBlock x:Name="CursorPosition" KeyDown="CursorPosition_KeyDown" KeyUp="CursorPosition_KeyUp"></TextBlock>
+            <StatusBarItem Grid.Column="1">
+                <TextBlock>Текст справа</TextBlock>
+            </StatusBarItem>
+        </StatusBar>
         <WrapPanel MinHeight="20" Margin="0,25,0,0">
-        <Button x:Name="italic" Width="30" Height="30" Click="italicc">
+        <Button x:Name="italic" Width="30" Height="30" Click="italicc_Click">
             <Image Source="images\italic_em_emphasis_format_editor_tool_icon_145968.png"/>
         </Button>
             <Button x:Name="blod" Width="30" Height="30" Click="blodd">
@@ -18,8 +38,8 @@
             <Image Source="images\underline_format_editor_tool_icon_145920.png"/>
         </Button>
     </WrapPanel>
-    <TextBox x:Name="textbox1" MaxLength="250" TextChanged="TextBox_TextChanged" Margin="195,30,10,0" Text=""/>
-    <ListBox Name="list" Margin="0,64,638,0">
+        <TextBox x:Name="textbox1" MaxLength="250" TextChanged="TextBox_TextChanged" Margin="195,25,0,0" Text="" KeyDown="textbox1_KeyDown" KeyUp="textbox1_KeyUp"/>
+        <ListBox Name="list" Margin="0,55,610,0">
         <ListBox.ContextMenu>
             <ContextMenu>
                 <MenuItem Header="Копировать"></MenuItem>
