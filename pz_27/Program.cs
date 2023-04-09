@@ -29,8 +29,14 @@
                 Console.Write("Напишите свой задиак: ");
                 string zodiac = Console.ReadLine();
 
-                Console.WriteLine("Дата Рождения: ");
-
+                int[] numb = new int[3];
+                for (int j = 0; j < numb.Length; j++)
+                {
+                    numb[j] = numb[0] = znk.BDAY[0] = x;
+                    numb[j] = numb[1] = znk.BDAY[1] = y;
+                    numb[j] = numb[2] = znk.BDAY[2] = z;
+                }
+                Console.WriteLine("Дата Рождения: " + string.Join(", ", numb));
                 BOOK[i] = new ZNAK { NAME = name, ZODIAC = zodiac };
             }
             Console.WriteLine("Введите имя или фамилию: ");
