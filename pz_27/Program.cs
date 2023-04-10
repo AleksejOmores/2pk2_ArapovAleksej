@@ -29,14 +29,12 @@
                 Console.Write("Напишите свой задиак: ");
                 string zodiac = Console.ReadLine();
 
-                int[] numb = new int[3];
-                for (int j = 0; j < numb.Length; j++)
-                {
-                    numb[j] = numb[0] = znk.BDAY[0] = x;
-                    numb[j] = numb[1] = znk.BDAY[1] = y;
-                    numb[j] = numb[2] = znk.BDAY[2] = z;
-                }
-                Console.WriteLine("Дата Рождения: " + string.Join(", ", numb));
+                znk.BDAY[0] = x;
+                znk.BDAY[1] = y;
+                znk.BDAY[2] = z;
+
+                Console.WriteLine($"Дата Рождения: {znk.BDAY[0]}.{znk.BDAY[1]}.{znk.BDAY[2]}" +
+                    $"");
                 BOOK[i] = new ZNAK { NAME = name, ZODIAC = zodiac };
             }
             Console.WriteLine("Введите имя или фамилию: ");
@@ -46,7 +44,7 @@
             {
                 if (znak.NAME == found)
                 {
-                    Console.WriteLine($"Вас зовут: {znak.NAME} Ваш знак Зодиака: {znak.ZODIAC} Вы родились: {znak.BDAY}");
+                    Console.WriteLine($"Вас зовут: {znak.NAME} Ваш знак Зодиака: {znak.ZODIAC} Вы родились: {znk.BDAY[0]}.{znk.BDAY[1]}.{znk.BDAY[2]}");
                 }
                 if (znak.NAME != found)
                 {
