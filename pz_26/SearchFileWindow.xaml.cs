@@ -27,7 +27,7 @@ namespace pz_26
         private void Ofcourse_Click(object sender, RoutedEventArgs e)
         {
             listbox1.Items.Clear();
-            DirectoryInfo dr = new DirectoryInfo(@"C:\Users\user\source\repos\2pk2_ArapovAleksej\pz_26\data");
+            DirectoryInfo dr = new DirectoryInfo(@"C:\Users\kurlaev.na1740\source\repos\2pk2_ArapovAleksej\pz_26\data");
 
             foreach (var derol in dr.GetFiles())
             {

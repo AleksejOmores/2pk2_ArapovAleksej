@@ -7,4 +7,22 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Images\bold_format_editor_tool_icon_146015.png" />
+    <None Remove="Images\italic_em_emphasis_format_editor_tool_icon_145968.png" />
+    <None Remove="Images\savetheapplication_guardar_2958.png" />
+    <None Remove="Images\success_win_done_mark_icon_145928.png" />
+    <None Remove="Images\trash_remove_icon_145922.png" />
+    <None Remove="Images\underline_format_editor_tool_icon_145920.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\bold_format_editor_tool_icon_146015.png" />
+    <Resource Include="Images\italic_em_emphasis_format_editor_tool_icon_145968.png" />
+    <Resource Include="Images\savetheapplication_guardar_2958.png" />
+    <Resource Include="Images\success_win_done_mark_icon_145928.png" />
+    <Resource Include="Images\trash_remove_icon_145922.png" />
+    <Resource Include="Images\underline_format_editor_tool_icon_145920.png" />
+  </ItemGroup>
+
 </Project>

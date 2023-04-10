@@ -30,6 +30,7 @@ namespace pz_26
         bool isBold;
         bool isItal;
         bool isUnd;
+        public static bool Save_ON = false;
         private string ReadMessage;
 
         public string filename { get; private set; }
@@ -50,14 +51,15 @@ namespace pz_26
             CreateFileWindow createFileWindow = new CreateFileWindow();
             if (createFileWindow.ShowDialog() == true)
                 filename = createFileWindow.FileName;
-            StreamWriter ss = new StreamWriter($@"C:\Users\user\source\repos\2pk2_ArapovAleksej\pz_26\data/{filename}.txt");
+            StreamWriter ss = new StreamWriter($@"C:\Users\kurlaev.na1740\source\repos\2pk2_ArapovAleksej\pz_26\data/{filename}.txt");
             ss.Close();
         }
         private void Save_Click(object sender, RoutedEventArgs e)
         {
-            StreamWriter sw = new StreamWriter($@"C:\Users\user\source\repos\2pk2_ArapovAleksej\pz_26\data/{filename}.txt");
+            StreamWriter sw = new StreamWriter($@"C:\Users\kurlaev.na1740\source\repos\2pk2_ArapovAleksej\pz_26\data/{filename}.txt");
             sw.WriteLine(textbox1.Text);
             sw.Close();
+            Save_ON = true;
         }
         private void Open_Click(object sender, EventArgs e)
         {
@@ -74,6 +76,7 @@ namespace pz_26
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             TextBox textBox = (TextBox)sender;
+            Save_ON = false;
         }
         private void italicc_Click(object sender, RoutedEventArgs e)
         {
@@ -100,9 +103,18 @@ namespace pz_26
         }
         private void txtEditor_SelectionChanged(object sender, RoutedEventArgs e)
         {
-            int row = textbox1.GetLineIndexFromCharacterIndex(textbox1.CaretIndex);
-            int col = textbox1.CaretIndex - textbox1.GetCharacterIndexFromLineIndex(row);
-            ibl.Text = $"Строка: {row} Столбец: {col}";
+            if (!Save_ON)
+            {
+                int row = textbox1.GetLineIndexFromCharacterIndex(textbox1.CaretIndex);
+                int col = textbox1.CaretIndex - textbox1.GetCharacterIndexFromLineIndex(row);
+                ibl.Text = $"Строка: {row} Столбец: {col} Трубется Сохранение";
+            }
+            if (Save_ON)
+            {
+                int row = textbox1.GetLineIndexFromCharacterIndex(textbox1.CaretIndex);
+                int col = textbox1.CaretIndex - textbox1.GetCharacterIndexFromLineIndex(row);
+                ibl.Text = $"Строка: {row} Столбец: {col} Сохранено";
+            }
         }
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
