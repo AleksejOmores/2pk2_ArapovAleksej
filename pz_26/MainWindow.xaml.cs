@@ -98,7 +98,8 @@ namespace pz_26
         {
             if (!isUnd)
                 textbox1.TextDecorations = TextDecorations.Underline;
-            else 
+            else
+                textbox1.TextDecorations = null;
             isUnd = !isUnd;
         }
         private void txtEditor_SelectionChanged(object sender, RoutedEventArgs e)
