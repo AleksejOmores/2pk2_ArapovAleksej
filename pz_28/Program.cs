@@ -2,31 +2,32 @@
 
 namespace pz_28
 {
-    public delegate void AccountHandler();
+    public delegate void AccountHandler(object sender, EventArgs e);
+
     class Student
     {
         public event AccountHandler Notify;
 
         public double AverageGrade { get; set; }
 
-        public virtual void GetAverageGrade()
+        public void Create()
         {
-            Console.WriteLine("Средняя оценка: {0}", AverageGrade);
+            if (Notify != null)
+            {
+                Notify(this, EventArgs.Empty);
+            }
+        }
+        public static void Send(object sender, EventArgs e)
+        {
+            Console.WriteLine($"Оценка ученика нормальная");
         }
     }
 
-    class Teacher : Student
+    class Teacher
     {
-        private double CRITICAL_GRADE = 2.4;
-
-        public override void GetAverageGrade()
+        public static void Send(object sender, EventArgs e)
         {
-            
-            Console.WriteLine("ееее");
-            if (AverageGrade < CRITICAL_GRADE)
-            {
-                Console.WriteLine("Опасно!");
-            }
+            Console.WriteLine($"Оценка низкая, пора уже начинать учиться");
         }
     }
 
@@ -35,19 +36,33 @@ namespace pz_28
         
         static void Main(string[] args)
         {
-            Student stdt = new Student();
+            var stdt = new Student();
+
             int count = 0;
             double sum = 0;
 
             for (int i = 0; i < 5; i++)
             {
-                Console.WriteLine("Введите оценку ученика");
-                sum += stdt.AverageGrade = Convert.ToDouble(Console.ReadLine());
+                Console.Write($"Введите оценку ученика: "); sum += stdt.AverageGrade = Convert.ToDouble(Console.ReadLine());
+                Console.WriteLine();
                 count++;
             }
+
             double result = sum / count;
-            stdt.AverageGrade = result;
-            stdt.GetAverageGrade();
+
+            Console.WriteLine($"Средняя оценка: {result}");
+            Console.WriteLine();
+
+            if (result > 2.4)
+            {
+                stdt.Notify += Student.Send;
+                stdt.Create();
+            }
+            else if (result <= 2.4)
+            {
+                stdt.Notify += Teacher.Send;
+                stdt.Create();
+            }
         }
     }
 }
