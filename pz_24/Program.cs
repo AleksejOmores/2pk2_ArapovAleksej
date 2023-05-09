@@ -6,10 +6,10 @@ namespace pz_24
     {
         static void Main(string[] args)
         {
-            PrivatePhone Privat = new PrivatePhone();
+            PrivatePhone Privat = new PrivatePhone("1", "101", "7654321", "tip");
             bool correct = true;
             string phoneFormat = "###-##-##";
-            Phone phone = new Clone();
+            Phone phone = new Phone("1", "101", "1234567", "tip");
             while (correct)
             {
                 Console.Write("Какой номер вам нужен? Корпоративный(1) или личный(2)?: ");
@@ -37,8 +37,10 @@ namespace pz_24
                     string three = phone.Number = Convert.ToInt32(Console.ReadLine()).ToString(phoneFormat);
                     Console.WriteLine();
                     Phone.const1++;
-                    Privat.GetPhoneNumber(ref one, ref two, ref three);
+                    phone.GetPhoneNumber(ref one, ref two, ref three);
                     correct = false;
+                    Phone clone1 = (Phone)phone.Clone();
+                    Console.WriteLine("Склонированный объект:"); Console.Write(clone1);
                 }
                 else if (phone.Type == "2")
                 {
